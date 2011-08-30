@@ -88,3 +88,19 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+tenant {
+    mode = "singleTenant" // OR "multiTenant"
+
+      datasourceResolver.type = "config" //This is the default and can be omitted
+      dataSourceTenantMap {
+        //The "t" before the tenantId is required because you can't have a
+        //variable that's a number
+        t1 = "jdbc:mysql://localhost/ets_dev1"
+        t2 = "jdbc:mysql://localhost/ets_dev2"
+    //    t3 = "jdbc:mysql://localhost/ets_dev3"        //JNDI Example
+   //     t1 = "java:comp/env/myDataSource"
+  }
+
+
+
+}
